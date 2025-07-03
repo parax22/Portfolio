@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Carter - Software Developer Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            /* scroll-behavior: smooth; */
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .dark {
+            background-color: #1f2937;
+            color: #f3f4f6;
+        }
+        .dark .bg-white {
+            background-color: #374151;
+        }
+        .dark .bg-gray-100 {
+            background-color: #2d3748;
+        }
+        .dark .text-gray-800 {
+            color: #f3f4f6;
+        }
+        .dark .bg-blue-600 {
+            background-color: #1e40af;
+        }
+        .dark .about-box {
+            background-color: #374151;
+            border-color: #4b5563;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .project-card, .edu-card, .exp-card, .contact-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .project-card:hover, .edu-card:hover, .exp-card:hover, .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        .navbar {
+            transition: background-color 0.3s ease;
+        }
+        .skill-badge {
+            transition: transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: #bfdbfe;
+            color: #1e40af;
+            border: 1px solid #93c5fd;
+            border-radius: 4px;
+            text-align: center;
+            min-height: 48px;
+            box-sizing: border-box;
+        }
+        .skill-badge:hover {
+            transform: scale(1.1);
+        }
+        .skill-badge img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            margin: 0;
+        }
+        .resume-btn {
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .resume-btn:hover {
+            transform: scale(1.05);
+        }
+        .custom-container {
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            height: 45%;
+            background-color: #2c3e50;
+            padding: 1rem;
+            transition: bottom 0.3s ease;
+            z-index: 1000;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+        }
+        .mobile-menu.active {
+            bottom: 0;
+        }
+        .mobile-menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .mobile-menu ul li {
+            width: 100%;
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid #34495e;
+        }
+        .mobile-menu ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: block;
+        }
+        .mobile-menu ul li a:hover {
+            color: #3498db;
+        }
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .about-box {
+            padding: 1.5rem;
+            background-color: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        @media (max-width: 640px) {
+            .hamburger {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu {
+                display: block;
+            }
+            .custom-container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            #about .flex {
+                flex-direction: column;
+                align-items: center;
+            }
+            .about-box {
+                margin-top: 1rem;
+                width: 100%;
+            }
+        }
+        @media (min-width: 641px) {
+            .mobile-menu {
+                display: none;
+            }
+            #about .flex {
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 2rem;
+            }
+            .about-box {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <header class="navbar bg-blue-600 text-white py-4 sticky top-0 z-50 shadow-lg">
+        <div class="custom-container flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Alex Carter</h1>
+            <button class="hamburger focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+            <nav class="nav-links flex space-x-6 items-center">
+                <a href="#about" class="hover:text-blue-200 transition">About</a>
+                <a href="#skills" class="hover:text-blue-200 transition">Skills</a>
+                <a href="#projects" class="hover:text-blue-200 transition">Projects</a>
+                <a href="#experience" class="hover:text-blue-200 transition">Experience</a>
+                <a href="#education" class="hover:text-blue-200 transition">Education</a>
+                <a href="#contact" class="hover:text-blue-200 transition">Contact</a>
+                <button id="theme-toggle" class="focus:outline-none">
+                    <i class="fas fa-moon text-xl"></i>
+                </button>
+            </nav>
+            <div class="mobile-menu">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero" class="py-20 bg-gradient-to-br from-blue-500 to-indigo-600 text-white text-center">
+        <div class="custom-container fade-in">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm Alex Carter</h2>
+            <p class="text-xl md:text-2xl mb-6">Full-Stack Software Developer</p>
+            <p class="text-lg max-w-2xl mx-auto">Crafting innovative and scalable solutions with a passion for clean code and user-centric design.</p>
+            <a href="https://yourusername.github.io/resume.pdf" target="_blank" class="resume-btn inline-block mt-6 bg-white text-blue-600 px-6 py-3 rounded-full font-semibold shadow-md">Download Resume</a>
+        </div>
+    </section>
+
+    <section id="about" class="py-16 custom-container fade-in">
+        <h2 class="text-3xl font-semibold text-center mb-8">About Me</h2>
+        <div class="flex flex-col md:flex-row items-center gap-8">
+            <div class="about-box w-48 h-48 md:w-64 md:h-64 overflow-hidden">
+                <img src="https://via.placeholder.com/250" alt="Profile Picture" class="w-full h-full object-cover">
+            </div>
+            <div class="about-box">
+                <p class="text-lg">I'm a dedicated software developer with 6+ years of experience in building robust web applications. My expertise spans front-end and back-end technologies, with a focus on delivering scalable, high-performance solutions. I enjoy tackling complex problems and am committed to continuous learning and innovation.</p>
+                <p class="text-lg mt-4">When I'm not coding, you can find me exploring new tech trends, contributing to open-source projects, or hiking in the great outdoors.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-16 bg-white shadow-md fade-in">
+        <div class="custom-container">
+            <h2 class="text-3xl font-semibold text-center mb-8">Skills</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <span class="skill-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Unofficial_JavaScript_logo_2.svg" alt="JavaScript">JavaScript</span>
+                <span class="skill-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="TypeScript">TypeScript</span>
+                <span class="skill-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="React">React</span>
+                <span class="skill-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="Node.js">Node.js</span>
+                <span class="skill-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/0/0a/Python.svg" alt="Python">Python</span>
+                <span class="skill-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/7/7d/Django_logo.svg" alt="Django">Django</span>
+                <span class="skill-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="PostgreSQL">PostgreSQL</span>
+                <span class="skill-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS">AWS</span>
+                <span class="skill-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg" alt="Docker">Docker</span>
+                <span class="skill-badge"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Git-logo.svg" alt="Git">Git</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-16 custom-container fade-in">
+        <h2 class="text-3xl font-semibold text-center mb-8">Projects</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="project-card bg-white p-6 rounded-lg shadow-md">
+                <img src="https://via.placeholder.com/300x200" alt="Project One" class="w-full h-48 object-cover rounded-t-lg mb-4">
+                <h3 class="text-xl font-semibold mb-2">TaskSync</h3>
+                <p class="mb-4">A collaborative task management app built with React, Node.js, and WebSocket for real-time updates. Includes user authentication and task prioritization.</p>
+                <div class="flex space-x-4">
+                    <a href="https://github.com/yourusername/tasksync" target="_blank" class="text-blue-600 hover:underline">GitHub</a>
+                    <a href="https://tasksync-demo.com" target="_blank" class="text-blue-600 hover:underline">Live Demo</a>
+                </div>
+            </div>
+            <div class="project-card bg-white p-6 rounded-lg shadow-md">
+                <img src="https://via.placeholder.com/300x200" alt="Project Two" class="w-full h-48 object-cover rounded-t-lg mb-4">
+                <h3 class="text-xl font-semibold mb-2">DataViz Dashboard</h3>
+                <p class="mb-4">An interactive dashboard for data analysis, built with Python, Django, and Chart.js, offering dynamic visualizations and filters.</p>
+                <div class="flex space-x-4">
+                    <a href="https://github.com/yourusername/dataviz" target="_blank" class="text-blue-600 hover:underline">GitHub</a>
+                    <a href="https://dataviz-demo.com" target="_blank" class="text-blue-600 hover:underline">Live Demo</a>
+                </div>
+            </div>
+            <div class="project-card bg-white p-6 rounded-lg shadow-md">
+                <img src="https://via.placeholder.com/300x200" alt="Project Three" class="w-full h-48 object-cover rounded-t-lg mb-4">
+                <h3 class="text-xl font-semibold mb-2">ShopEasy</h3>
+                <p class="mb-4">A scalable e-commerce platform with payment integration, built using Next.js, TypeScript, and Stripe.</p>
+                <div class="flex space-x-4">
+                    <a href="https://github.com/yourusername/shopeasy" target="_blank" class="text-blue-600 hover:underline">GitHub</a>
+                    <a href="https://shopeasy-demo.com" target="_blank" class="text-blue-600 hover:underline">Live Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="py-16 custom-container fade-in">
+        <h2 class="text-3xl font-semibold text-center mb-8">Experience</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="exp-card bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-2">Lead Software Engineer - CodeWave Inc.</h3>
+                <p class="text-gray-600 mb-2">Mar 2021 - Present</p>
+                <ul class="list-disc list-inside mt-2 text-lg">
+                    <li>Architected and deployed a microservices-based platform, improving scalability by 40%.</li>
+                    <li>Mentored a team of 6 developers, fostering best practices in code quality and testing.</li>
+                    <li>Integrated AWS services for cloud-based deployments and CI/CD pipelines.</li>
+                </ul>
+            </div>
+            <div class="exp-card bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-2">Full-Stack Developer - TechTrend Solutions</h3>
+                <p class="text-gray-600 mb-2">Jun 2018 - Feb 2021</p>
+                <ul class="list-disc list-inside mt-2 text-lg">
+                    <li>Developed responsive web applications using React and Node.js, serving 10,000+ users.</li>
+                    <li>Optimized database queries with PostgreSQL, reducing load times by 25%.</li>
+                    <li>Collaborated with UX designers to enhance user interfaces and accessibility.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="py-16 custom-container fade-in">
+        <h2 class="text-3xl font-semibold text-center mb-8">Education</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
+            <div class="edu-card bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-2">M.S. in Computer Science</h3>
+                <p class="text-gray-600 mb-2">Tech University, 2018 - 2020</p>
+                <p>Specialized in distributed systems and machine learning, with a thesis on scalable web architectures.</p>
+            </div>
+            <div class="edu-card bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-2">B.S. in Software Engineering</h3>
+                <p class="text-gray-600 mb-2">Tech University, 2014 - 2018</p>
+                <p>Graduated summa cum laude, with a focus on software development and algorithms.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-16 custom-container fade-in">
+        <h2 class="text-3xl font-semibold text-center mb-8">Contact Me</h2>
+        <p class="text-lg text-center mb-6">Interested in collaborating or have an opportunity? Let's connect!</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="contact-card bg-white p-6 rounded-lg shadow-md text-center">
+                <a href="mailto:your.email@example.com" class="text-blue-600 hover:underline block"><i class="fas fa-envelope mr-2"></i>Email</a>
+            </div>
+            <div class="contact-card bg-white p-6 rounded-lg shadow-md text-center">
+                <a href="https://github.com/yourusername" target="_blank" class="text-blue-600 hover:underline block"><i class="fab fa-github mr-2"></i>GitHub</a>
+            </div>
+            <div class="contact-card bg-white p-6 rounded-lg shadow-md text-center">
+                <a href="https://linkedin.com/in/yourusername" target="_blank" class="text-blue-600 hover:underline block"><i class="fab fa-linkedin mr-2"></i>LinkedIn</a>
+            </div>
+            <div class="contact-card bg-white p-6 rounded-lg shadow-md text-center">
+                <a href="https://twitter.com/yourusername" target="_blank" class="text-blue-600 hover:underline block"><i class="fab fa-twitter mr-2"></i>Twitter</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-white py-6 text-center">
+        <p>© 2025 Alex Carter. All rights reserved.</p>
+        <p class="mt-2">Built with <i class="fas fa-heart text-red-500"></i> by Alex Carter</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                if (window.innerWidth <= 640) {
+                    document.querySelector('.mobile-menu').classList.remove('active');
+                }
+            });
+        });
+
+        // Fade-in animations
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Dark mode toggle
+        const toggleButton = document.getElementById('theme-toggle');
+        toggleButton.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            const isDark = document.body.classList.contains('dark');
+            toggleButton.innerHTML = isDark ? '<i class="fas fa-sun text-xl"></i>' : '<i class="fas fa-moon text-xl"></i>';
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        });
+
+        // Load theme
+        if (localStorage.getItem('theme') === 'dark') {
+            document.body.classList.add('dark');
+            toggleButton.innerHTML = '<i class="fas fa-sun text-xl"></i>';
+        }
+
+        // Mobile menu toggle
+        const hamburger = document.querySelector('.hamburger');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        hamburger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
