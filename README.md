@@ -68,7 +68,6 @@ Inspiration from modern portfolio designs.
 Have a question or opportunity? Reach out!
 
 Email: paghadarparam2@gmail.com
-Twitter: @yourusername
 
 
 Last updated: July 03, 2025
