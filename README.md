@@ -2,7 +2,6 @@ Alex Carter - Portfolio
 ## 🌟 About Me
 Welcome to my personal portfolio! I’m Alex Carter, a dedicated Full-Stack Software Developer with over 6 years of experience in crafting innovative and scalable web applications. This portfolio showcases my skills, projects, and professional journey.
 
-Location: [Your City, Country]
 Email: paghadarparam2@gmail.com
 LinkedIn: https://www.linkedin.com/in/param-paghadar
 GitHub: github.com/parax22
