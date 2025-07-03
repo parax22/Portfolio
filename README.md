@@ -3,15 +3,15 @@ Alex Carter - Portfolio
 Welcome to my personal portfolio! I’m Alex Carter, a dedicated Full-Stack Software Developer with over 6 years of experience in crafting innovative and scalable web applications. This portfolio showcases my skills, projects, and professional journey.
 
 Location: [Your City, Country]
-Email: your.email@example.com
-LinkedIn: linkedin.com/in/yourusername
-GitHub: github.com/yourusername
+Email: paghadarparam2@gmail.com
+LinkedIn: https://www.linkedin.com/in/param-paghadar
+GitHub: github.com/parax22
 
 🚀 Project Overview
 This repository contains a static HTML portfolio website built with Tailwind CSS, featuring a responsive design and dark mode toggle. It highlights my skills, projects, experience, and education, with a downloadable resume.
 
 Tech Stack: HTML, CSS (Tailwind), JavaScript
-Live Demo: https://yourusername.github.io/your-repo-name
+Live Demo: https://parampaghadar.vercel.app
 
 🎨 Features
 
@@ -57,15 +57,6 @@ Replace placeholder images (e.g., https://via.placeholder.com/) with your own.
 Update the "About Me" section, skills, projects, experience, and contact details in index.html.
 Add your resume.pdf to the project folder and ensure the "Download Resume" link points to project/resume.pdf.
 
-🤝 Contributing
-Contributions are welcome! Please follow these steps:
-
-Fork the repository.
-Create a new branch: git checkout -b feature-branch.
-Make your changes and commit: git commit -m "Add new feature".
-Push to the branch: git push origin feature-branch.
-Open a Pull Request.
-
 📜 License
 This project is licensed under the MIT License. Feel free to use, modify, and distribute it.
 🙏 Acknowledgments
@@ -77,7 +68,7 @@ Inspiration from modern portfolio designs.
 📬 Contact
 Have a question or opportunity? Reach out!
 
-Email: your.email@example.com
+Email: paghadarparam2@gmail.com
 Twitter: @yourusername
 
 
