@@ -37,6 +37,32 @@
         darkMode: 'class'
       }
     </script>
+    <style>
+      .card {
+        width: 100%;
+        max-width: 600px;   /* Increased width */
+        border-radius: 16px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 5px 18px rgba(0,0,0,0.1);
+      }
+
+      /* Increased image height */
+      .card-media {
+        width: 100%;
+        height: 360px;  /* Increased height */
+        overflow: hidden;
+      }
+
+      .card-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+
+    </style>
 
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/styles.css" />
@@ -241,7 +267,9 @@
           <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Project Card -->
             <article class="card" data-aos="fade-up">
-              <div class="card-media" aria-hidden="true"><img src="assets/images/skills/cicd.png" alt="cicd"></div>
+              <div class="card-media">
+                <img src="assets/images/skills/amazon_clone.png" alt="amazon_clone_Image" />
+              </div>
               <div class="card-body">
                 <h3 class="card-title">Project Alpha</h3>
                 <p class="card-text">A full-stack web app with real-time features and a delightful UX.</p>
@@ -251,29 +279,33 @@
                   <span class="tag">Socket.io</span>
                 </div>
                 <div class="card-actions">
-                  <a href="#" class="btn-link">Live</a>
-                  <a href="#" class="btn-link">Code</a>
+                  <!-- <a href="#" class="btn-link">Live</a> -->
+                  <a href="https://github.com/parax22/flutter-amazon-clone-app" class="btn-link">Code</a>
                 </div>
               </div>
             </article>
+            
 
-            <article class="card" data-aos="fade-up" data-aos-delay="100">
-              <div class="card-media gradient-2" aria-hidden="true"></div>
+            <article class="card" data-aos="fade-up">
+              <div class="card-media">
+                <img src="assets/images/skills/book_app.png" alt="Book_App_Image" />
+              </div>
               <div class="card-body">
-                <h3 class="card-title">Project Beta</h3>
-                <p class="card-text">Design system and component library powering multiple apps.</p>
+                <h3 class="card-title">Project Alpha</h3>
+                <p class="card-text">A full-stack web app with real-time features and a delightful UX.</p>
                 <div class="card-tags">
-                  <span class="tag">TypeScript</span>
-                  <span class="tag">Storybook</span>
-                </div>
+                  <span class="tag">React</span>
+                  <span class="tag">Node</span>
+                  <span class="tag">Socket.io</span>
+                </div>  
                 <div class="card-actions">
-                  <a href="#" class="btn-link">Live</a>
-                  <a href="#" class="btn-link">Code</a>
+                  <!-- <a href="#" class="btn-link">Live</a> -->
+                  <a href="https://github.com/parax22/flutter-book-ui" class="btn-link">Code</a>
                 </div>
               </div>
             </article>
 
-            <article class="card" data-aos="fade-up" data-aos-delay="200">
+            <!-- <article class="card" data-aos="fade-up" data-aos-delay="200">
               <div class="card-media gradient-3" aria-hidden="true"></div>
               <div class="card-body">
                 <h3 class="card-title">Project Gamma</h3>
@@ -288,7 +320,7 @@
                   <a href="#" class="btn-link">Code</a>
                 </div>
               </div>
-            </article>
+            </article> -->
           </div>
         </div>
       </section>

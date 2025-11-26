@@ -97,7 +97,7 @@
 .skill-card span { font-size: .85rem; font-weight: 600; color: #0f172a; }
 .dark .skill-card span { color: #e2e8f0; }
 
-/* Skills marquee */
+/* Skills marquee */  
 .marquee { position: relative; overflow: hidden; margin-top: 1.25rem; }
 .marquee::before, .marquee::after { content: ""; position: absolute; top: 0; bottom: 0; width: 48px; pointer-events: none; z-index: 1; }
 .marquee::before { left: 0; background: linear-gradient(90deg, rgba(255,255,255,1), rgba(255,255,255,0)); }
